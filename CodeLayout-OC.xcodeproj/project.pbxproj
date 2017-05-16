@@ -12,6 +12,8 @@
 		E21D04021EC9B05700E0F798 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E21D04011EC9B05700E0F798 /* ViewController.m */; };
 		E21D04071EC9B05700E0F798 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E21D04061EC9B05700E0F798 /* Assets.xcassets */; };
 		E21D04171EC9B1B100E0F798 /* UIView+CodeLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = E21D04161EC9B1B100E0F798 /* UIView+CodeLayout.m */; };
+		E21D041A1ECACE6500E0F798 /* CodeLayout.podspec in Resources */ = {isa = PBXBuildFile; fileRef = E21D04181ECACE6500E0F798 /* CodeLayout.podspec */; };
+		E21D041B1ECACE6500E0F798 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = E21D04191ECACE6500E0F798 /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +27,8 @@
 		E21D040B1EC9B05700E0F798 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E21D04151EC9B1B100E0F798 /* UIView+CodeLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+CodeLayout.h"; sourceTree = "<group>"; };
 		E21D04161EC9B1B100E0F798 /* UIView+CodeLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+CodeLayout.m"; sourceTree = "<group>"; };
+		E21D04181ECACE6500E0F798 /* CodeLayout.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CodeLayout.podspec; sourceTree = "<group>"; };
+		E21D04191ECACE6500E0F798 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +47,8 @@
 			children = (
 				E21D03F91EC9B05700E0F798 /* CodeLayout-OC */,
 				E21D03F81EC9B05700E0F798 /* Products */,
+				E21D04181ECACE6500E0F798 /* CodeLayout.podspec */,
+				E21D04191ECACE6500E0F798 /* README.md */,
 			);
 			sourceTree = "<group>";
 		};
@@ -145,6 +151,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E21D04071EC9B05700E0F798 /* Assets.xcassets in Resources */,
+				E21D041A1ECACE6500E0F798 /* CodeLayout.podspec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -157,6 +164,7 @@
 			files = (
 				E21D04171EC9B1B100E0F798 /* UIView+CodeLayout.m in Sources */,
 				E21D04021EC9B05700E0F798 /* ViewController.m in Sources */,
+				E21D041B1ECACE6500E0F798 /* README.md in Sources */,
 				E21D03FF1EC9B05700E0F798 /* AppDelegate.m in Sources */,
 				E21D03FC1EC9B05700E0F798 /* main.m in Sources */,
 			);
@@ -302,6 +310,7 @@
 				E21D04101EC9B05700E0F798 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

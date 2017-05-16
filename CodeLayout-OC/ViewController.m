@@ -15,13 +15,6 @@
 
 @implementation ViewController
 
-- (CGRect )make:(CGPoint) p size:(CGSize )size
-{
-    CGFloat y = p.y * CLScale;
-    
-    return CGRectMake(p.x, y, size.width, size.height);
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
