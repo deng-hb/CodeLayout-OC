@@ -10,88 +10,76 @@
 
 @implementation UIView (CodeLayout)
 
-- (CGFloat)left
+- (CGFloat)CLLeft
 {
-    return self.frame.origin.x;
+    return self.frame.origin.x / CLScale;
 }
 
-- (void)setLeft:(CGFloat)x
+- (void)setCLLeft:(CGFloat)x
 {
     CGRect frame = self.frame;
-    frame.origin.x = x;
+    frame.origin.x = x * CLScale;
     self.frame = frame;
 }
 
-- (CGFloat)right
+- (CGFloat)CLRight
 {
-    return self.frame.origin.x + self.frame.size.width;
+    return (self.frame.origin.x + self.frame.size.width) / CLScale;
 }
 
-- (void)setRight:(CGFloat)right
+- (void)setCLRight:(CGFloat)right
 {
     CGRect frame = self.frame;
-    frame.origin.x = right - frame.size.width;
+    frame.origin.x = (right - frame.size.width) * CLScale;
     self.frame = frame;
 }
 
-- (CGFloat)top
+- (CGFloat)CLTop
 {
-    return self.frame.origin.y;
+    return self.frame.origin.y / CLScale;
 }
 
-- (void)setTop:(CGFloat)y
+- (void)setCLTop:(CGFloat)y
 {
     CGRect frame = self.frame;
-    frame.origin.y = y;
+    frame.origin.y = y * CLScale;
     self.frame = frame;
 }
 
-- (CGFloat)bottom
+- (CGFloat)CLBottom
 {
-    return self.frame.origin.y + self.frame.size.height;
+    return (self.frame.origin.y + self.frame.size.height) / CLScale;
 }
 
-- (void)setBottom:(CGFloat)bottom
+- (void)setCLBottom:(CGFloat)bottom
 {
     CGRect frame = self.frame;
-    frame.origin.y = bottom - frame.size.height;
+    frame.origin.y = (bottom - frame.size.height) * CLScale;
     self.frame = frame;
 }
 
-- (CGFloat)width
+- (CGFloat)CLWidth
 {
-    return self.frame.size.width;
+    return self.frame.size.width / CLScale;
 }
 
-- (void)setWidth:(CGFloat)width
+- (void)setCLWidth:(CGFloat)width
 {
     CGRect frame = self.frame;
-    frame.size.width = width;
+    frame.size.width = width * CLScale;
     self.frame = frame;
 }
 
-- (CGFloat)height
+- (CGFloat)CLHeight
 {
-    return self.frame.size.height;
+    return self.frame.size.height / CLScale;
 }
 
-- (void)setHeight:(CGFloat)height
+- (void)setCLHeight:(CGFloat)height
 {
     CGRect frame = self.frame;
-    frame.size.height = height;
+    frame.size.height = height * CLScale;
     self.frame = frame;
 }
-
-
-- (CGFloat)midX
-{
-    return self.frame.origin.x + self.frame.size.width/2.0;
-}
-
-- (CGFloat)midY
-{
-    return self.frame.origin.y + self.frame.size.height/2.0;
-}
-
 
 @end
