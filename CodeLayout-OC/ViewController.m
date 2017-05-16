@@ -51,6 +51,35 @@
     [text3Label setText:@"我在green的水平居中"];
     [text3Label setBackgroundColor:[UIColor yellowColor]];
     [self.view addSubview:text3Label];
+    
+    NSString *text4 = @"文字高度计算   我们日常用的宽带速度计量，比如5M宽带，完整是5Mbps, 即5M bit per second. 所以对应的下载速度是 5*1024 K bit per second = 5*1024/8 K byte per second = 640KB/s，当然，这个是理想速度。";
+    UIFont *font4 = CLFont(12);
+    // 计算高度
+    CGFloat height = CLTextHeight(text4, font4, 200);
+    
+    UILabel *text4Label = [[UILabel alloc]initWithFrame:CLRectMake(textLabel.CLLeft, (text2Label.CLBottom + 10), 180, height)];
+    [text4Label setNumberOfLines:0];
+    [text4Label setFont:font4];
+    [text4Label setText:text4];
+    [text4Label setBackgroundColor:[UIColor yellowColor]];
+    [self.view addSubview:text4Label];
+    
+    NSString *text5 = @"文字宽度度计算";
+    UIFont *font5 = CLFont(16);
+
+    UILabel *text5Label = [[UILabel alloc]initWithFrame:CLRectMake(text4Label.CLRight, text4Label.CLTop, 0, 20)];
+    [text5Label setNumberOfLines:0];
+    [text5Label setFont:font5];
+    [text5Label setText:text5];
+    [text5Label setTextColor:[UIColor whiteColor]];
+    [text5Label setBackgroundColor:[UIColor blackColor]];
+    [self.view addSubview:text5Label];
+    
+    // 计算宽度
+    CGFloat width = CLTextWidth(text5, font5);
+    NSLog(@"%f",width);
+    [text5Label setCLWidth:width];
+    
 }
 
 
