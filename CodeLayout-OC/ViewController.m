@@ -20,14 +20,15 @@
     
     NSLog(@"%f",CLBaseWidth);
     
-    UILabel *textLabel = [[UILabel alloc]initWithFrame:CLRectMake(10, 66, (CLBaseWidth - 20), 131)];
+    UILabel *textLabel = [[UILabel alloc]init];
+    [textLabel setCLFrame:CGRectMake(10, 66, (CLBaseWidth - 20), 131)];
     [textLabel setFont:CLFont(14)];
     [textLabel setText:@"我是测试Banner@1342@#¥%，然而没有图片"];
     [textLabel setBackgroundColor:[UIColor redColor]];
     [self.view addSubview:textLabel];
     
-//    UIView *blueView = [[UIView alloc]initWithFrame:[self make:CGPointMake(textLabel.CLLeft, textLabel.CLBottom + 10) size:CGSizeMake(80, 30)]];
-    UIView *blueView = [[UIView alloc]initWithFrame:CLRectMake(CLX(textLabel), (CLMY(textLabel) + 10), 80, 30)];
+    UIView *blueView = [[UIView alloc]init];
+    [blueView setCLFrame:CGRectMake(textLabel.CLLeft, (textLabel.CLBottom + 10), 80, 30)];
     [blueView setBackgroundColor:[UIColor blueColor]];
     [self.view addSubview:blueView];
     
@@ -48,7 +49,8 @@
     [self.view addSubview:text2Label];
     
     
-    UILabel *text3Label = [[UILabel alloc]initWithFrame:CLRectMake((text2Label.CLRight + 10), (text2Label.CLTop + (text2Label.CLHeight-20)/2.0), 120, 20)];
+    UILabel *text3Label = [[UILabel alloc]init];
+    [text3Label setCLFrame:CGRectMake((text2Label.CLRight + 10), (text2Label.CLTop + (text2Label.CLHeight-20)/2.0), 120, 20)];
     [text3Label setNumberOfLines:0];
     [text3Label setFont:CLFont(12)];
     [text3Label setText:@"我在green的水平居中"];
@@ -60,7 +62,8 @@
     // 计算高度
     CGFloat height = CLTextHeight(text4, font4, 200);
     
-    UILabel *text4Label = [[UILabel alloc]initWithFrame:CLRectMake(CLX(textLabel), (text2Label.CLBottom + 10), 180, height)];
+    UILabel *text4Label = [[UILabel alloc]init];
+    [text4Label setCLFrame:CGRectMake(textLabel.CLLeft, (text2Label.CLBottom + 10), 180, height)];
     [text4Label setNumberOfLines:0];
     [text4Label setFont:font4];
     [text4Label setText:text4];
@@ -70,7 +73,8 @@
     NSString *text5 = @"文字宽度度计算";
     UIFont *font5 = CLFont(16);
 
-    UILabel *text5Label = [[UILabel alloc]initWithFrame:CLRectMake(text4Label.CLRight, text4Label.CLTop, 0, 20)];
+    UILabel *text5Label = [[UILabel alloc]init];
+    text5Label.CLFrame = CGRectMake(text4Label.CLRight, text4Label.CLTop, 0, 20);
     [text5Label setNumberOfLines:0];
     [text5Label setFont:font5];
     [text5Label setText:text5];
@@ -82,6 +86,13 @@
     CGFloat width = CLTextWidth(text5, font5);
     NSLog(@"%f",width);
     [text5Label setCLWidth:width];
+    
+    
+    UILabel *text6Label = [[UILabel alloc]init];
+    [text6Label setCLFrame:CGRectMake(0, text4Label.CLBottom, 10, 10)];
+    [text6Label setBackgroundColor:[UIColor grayColor]];
+    [self.view addSubview:text6Label];
+    
     
 }
 

@@ -32,7 +32,7 @@
 
 - (CGFloat)CLLeft
 {
-    return self.frame.origin.x / CLScale;
+    return self.CLFrame.origin.x;
 }
 
 - (void)setCLLeft:(CGFloat)x
@@ -44,19 +44,12 @@
 
 - (CGFloat)CLRight
 {
-    return (self.frame.origin.x + self.frame.size.width) / CLScale;
-}
-
-- (void)setCLRight:(CGFloat)right
-{
-    CGRect frame = self.frame;
-    frame.origin.x = (right - frame.size.width) * CLScale;
-    self.frame = frame;
+    return self.CLFrame.origin.x + self.CLFrame.size.width;
 }
 
 - (CGFloat)CLTop
 {
-    return self.frame.origin.y / CLScale;
+    return self.CLFrame.origin.y;
 }
 
 - (void)setCLTop:(CGFloat)y
@@ -68,19 +61,12 @@
 
 - (CGFloat)CLBottom
 {
-    return (self.frame.origin.y + self.frame.size.height) / CLScale;
-}
-
-- (void)setCLBottom:(CGFloat)bottom
-{
-    CGRect frame = self.frame;
-    frame.origin.y = (bottom - frame.size.height) * CLScale;
-    self.frame = frame;
+    return self.CLFrame.origin.y + self.CLFrame.size.height;
 }
 
 - (CGFloat)CLWidth
 {
-    return self.frame.size.width / CLScale;
+    return self.CLFrame.size.width;
 }
 
 - (void)setCLWidth:(CGFloat)width
@@ -92,7 +78,7 @@
 
 - (CGFloat)CLHeight
 {
-    return self.frame.size.height / CLScale;
+    return self.CLFrame.size.height;
 }
 
 - (void)setCLHeight:(CGFloat)height
