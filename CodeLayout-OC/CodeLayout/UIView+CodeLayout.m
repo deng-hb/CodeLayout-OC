@@ -10,6 +10,26 @@
 
 @implementation UIView (CodeLayout)
 
+- (CGRect)CLFrame
+{
+    CGRect rect = self.frame;
+    rect.origin.x /= CLScale;
+    rect.origin.y /= CLScale;
+    rect.size.width /= CLScale;
+    rect.size.height /= CLScale;
+    return rect;
+}
+
+- (void)setCLFrame:(CGRect)rect
+{
+    rect.origin.x *= CLScale;
+    rect.origin.y *= CLScale;
+    rect.size.width *= CLScale;
+    rect.size.height *= CLScale;
+    
+    self.frame = rect;
+}
+
 - (CGFloat)CLLeft
 {
     return self.frame.origin.x / CLScale;

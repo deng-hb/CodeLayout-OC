@@ -7,7 +7,6 @@
 //
 
 #import "ViewController.h"
-#import "UIView+CodeLayout.h"
 
 @interface ViewController ()
 
@@ -18,15 +17,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-
-    UILabel *textLabel = [[UILabel alloc]initWithFrame:CLRectMake(7, 66, 361, 131)];
+    
+    NSLog(@"%f",CLBaseWidth);
+    
+    UILabel *textLabel = [[UILabel alloc]initWithFrame:CLRectMake(10, 66, (CLBaseWidth - 20), 131)];
     [textLabel setFont:CLFont(14)];
     [textLabel setText:@"我是测试Banner@1342@#¥%，然而没有图片"];
     [textLabel setBackgroundColor:[UIColor redColor]];
     [self.view addSubview:textLabel];
     
 //    UIView *blueView = [[UIView alloc]initWithFrame:[self make:CGPointMake(textLabel.CLLeft, textLabel.CLBottom + 10) size:CGSizeMake(80, 30)]];
-    UIView *blueView = [[UIView alloc]initWithFrame:CLRectMake(textLabel.CLLeft, (textLabel.CLBottom + 10), 80, 30)];
+    UIView *blueView = [[UIView alloc]initWithFrame:CLRectMake(CLX(textLabel), (CLMY(textLabel) + 10), 80, 30)];
     [blueView setBackgroundColor:[UIColor blueColor]];
     [self.view addSubview:blueView];
     
@@ -37,7 +38,9 @@
     NSLog(@"%@",NSStringFromCGRect(blueView.frame));
     
     
-    UILabel *text2Label = [[UILabel alloc]initWithFrame:CLRectMake((blueView.CLRight + 10), blueView.CLTop, 100, 80)];
+    UILabel *text2Label = [[UILabel alloc]init];
+//    [text2Label setFrame:CLRectMake((blueView.CLRight + 10), blueView.CLTop, 100, 80)];
+    [text2Label setCLFrame:CGRectMake(blueView.CLRight + 10, blueView.CLTop, 100, 80)];
     [text2Label setNumberOfLines:0];
     [text2Label setFont:CLFont(12)];
     [text2Label setText:@"我在blue右边，并且和ta有一样y"];
@@ -57,7 +60,7 @@
     // 计算高度
     CGFloat height = CLTextHeight(text4, font4, 200);
     
-    UILabel *text4Label = [[UILabel alloc]initWithFrame:CLRectMake(textLabel.CLLeft, (text2Label.CLBottom + 10), 180, height)];
+    UILabel *text4Label = [[UILabel alloc]initWithFrame:CLRectMake(CLX(textLabel), (text2Label.CLBottom + 10), 180, height)];
     [text4Label setNumberOfLines:0];
     [text4Label setFont:font4];
     [text4Label setText:text4];
