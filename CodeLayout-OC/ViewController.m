@@ -57,13 +57,15 @@
     [text3Label setBackgroundColor:[UIColor yellowColor]];
     [self.view addSubview:text3Label];
     
+    
     NSString *text4 = @"文字高度计算   我们日常用的宽带速度计量，比如5M宽带，完整是5Mbps, 即5M bit per second. 所以对应的下载速度是 5*1024 K bit per second = 5*1024/8 K byte per second = 640KB/s，当然，这个是理想速度。";
     UIFont *font4 = CLFont(12);
     // 计算高度
-    CGFloat height = CLTextHeight(text4, font4, 200);
+    CGFloat text4Width = 180;
+    CGFloat text4Height = CLTextHeight(text4, CLFont(12), text4Width);
     
     UILabel *text4Label = [[UILabel alloc]init];
-    [text4Label setCLFrame:CGRectMake(textLabel.CLLeft, (text2Label.CLBottom + 10), 180, height)];
+    [text4Label setCLFrame:CGRectMake(textLabel.CLLeft, (text2Label.CLBottom + 10), text4Width, text4Height)];
     [text4Label setNumberOfLines:0];
     [text4Label setFont:font4];
     [text4Label setText:text4];
@@ -83,14 +85,42 @@
     [self.view addSubview:text5Label];
     
     // 计算宽度
-    CGFloat width = CLTextWidth(text5, font5);
-    NSLog(@"%f",width);
-    [text5Label setCLWidth:width];
+    CGFloat text5Width = CLTextWidth(text5, font5);
+    NSLog(@"text5Width:%f",text5Width);
+    [text5Label setCLWidth:text5Width];
     
+    
+    
+    NSString *text6 = @"绿色大小垂直居中倾斜下划线(黑)删除线(红)";
     
     UILabel *text6Label = [[UILabel alloc]init];
-    [text6Label setCLFrame:CGRectMake(0, text4Label.CLBottom, 10, 10)];
+    [text6Label setCLFrame:CGRectMake(0, text4Label.CLBottom + 20, CLBaseWidth, 30)];
     [text6Label setBackgroundColor:[UIColor grayColor]];
+    [text6Label setTextAlignment:(NSTextAlignmentCenter)];
+    [text6Label setFont:CLFont(14)];
+    [text6Label setBackgroundColor:[UIColor clearColor]];
+    
+    // TODO location&length写死
+    NSMutableAttributedString *text6Attr = [[NSMutableAttributedString alloc]initWithString:text6];
+    // 绿色
+    [text6Attr addAttribute: NSForegroundColorAttributeName value:[UIColor greenColor] range:NSMakeRange(0, 2)];
+    // 大
+    [text6Attr addAttribute: NSFontAttributeName value:CLFont(30) range:NSMakeRange(2, 1)];
+    // 小
+    [text6Attr addAttribute: NSFontAttributeName value:CLFont(10) range:NSMakeRange(3, 1)];
+    // 垂直居中
+    [text6Attr addAttribute: NSBaselineOffsetAttributeName value:@(CLSize(5.0)) range: NSMakeRange(4, 4)];
+    // 倾斜
+    [text6Attr addAttribute: NSObliquenessAttributeName value:@(0.3) range:NSMakeRange(8, 2)];
+    // 下划线(黑)
+    [text6Attr addAttributes: @{NSUnderlineStyleAttributeName:@(NSUnderlineStyleSingle),NSUnderlineColorAttributeName:[UIColor blackColor]} range:NSMakeRange(10, 6)];
+    // 删除线(红)
+    [text6Attr addAttributes: @{NSStrikethroughStyleAttributeName:@(NSUnderlineStyleSingle),NSStrikethroughColorAttributeName:[UIColor redColor]} range:NSMakeRange(16, 6)];
+
+    
+    [text6Label setAttributedText:text6Attr];
+    [text6Label.layer setBorderWidth:0.5];
+    [text6Label.layer setBorderColor:[UIColor redColor].CGColor];
     [self.view addSubview:text6Label];
     
     
